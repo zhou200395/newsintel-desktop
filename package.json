@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
-    "build:win": "electron-builder --win",
+    "build:win": "electron-builder --win --publish never",  // 核心修改：直接加禁用发布参数
     "pack": "electron-builder --dir"
   },
   "keywords": ["news", "rss", "finance", "politics"],
@@ -22,7 +22,6 @@
   "build": {
     "appId": "com.newsite.app",
     "productName": "NewsIntel",
-    "publish": "never",
     "directories": {
       "output": "dist"
     },
