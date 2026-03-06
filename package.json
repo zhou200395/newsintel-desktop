@@ -1,7 +1,62 @@
 {
   "name": "newsintel",
   "version": "1.0.0",
+  "description{
+  "name": "newsintel",
+  "version": "1.0.0",
   "description": "新闻智能分析平台 - 实时收集权威媒体新闻",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "pack": "electron-builder --dir"
+  },
+  "keywords": ["news", "rss", "finance", "politics"],
+  "author": "NewsIntel",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  },
+  "build": {
+    "appId": "com.newsite.app",
+    "productName": "NewsIntel",
+    "publish": "never",  // 新增这一行，核心修复
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/",
+      "assets/",
+      "node_modules/"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+} "新闻智能分析平台 - 实时收集权威媒体新闻",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
