@@ -21,7 +21,10 @@ jobs:
       run: npm install
 
     - name: 打包 Windows 应用
-      run: npm run build:win -- --publish never  # 新增参数，彻底禁用发布流程
+      env:
+        # 注入 GitHub 内置 Token，彻底解决 GH_TOKEN 缺失问题
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run build:win -- --publish never
 
     - name: 上传打包产物
       uses: actions/upload-artifact@v4
