@@ -28,9 +28,10 @@
     "files": [
       "main.js",
       "preload.js",
-      "renderer/",
-      "assets/",
-      "node_modules/"
+      "package.json",
+      "renderer/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
     ],
     "win": {
       "target": [
